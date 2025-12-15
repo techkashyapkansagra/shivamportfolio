@@ -33,8 +33,11 @@ export function Navigation() {
         top: offsetPosition,
         behavior: "smooth",
       });
+      // Close mobile menu after scroll completes
+      setTimeout(() => setIsOpen(false), 1500);
+    } else {
+      setIsOpen(false);
     }
-    setIsOpen(false);
   };
   const navLinks = [
     {

@@ -224,13 +224,16 @@ export function ContactSection() {
               value={formData.service}
               onChange={handleChange}
               className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all">
-              <option value="">Select a service</option>
-              <option value="real-estate">Real Estate Marketing</option>
-              <option value="performance-ads">Performance Advertising</option>
-              <option value="content-creation">Content Creation</option>
-              <option value="seo">SEO Services</option>
-              <option value="social-media">Social Media Management</option>
-              <option value="full-service">Full Service Package</option>
+                <option value="" className="bg-primary text-white">Select a service</option>
+                <option value="real-estate" className="bg-primary text-white">Real Estate Marketing</option>
+                <option value="branding" className="bg-primary text-white">Branding Services</option>
+                <option value="digital-marketing" className="bg-primary text-white">Digital Marketing</option>
+                <option value="web-development" className="bg-primary text-white">Web Development</option>
+                <option value="performance-ads" className="bg-primary text-white">Performance Advertising</option>
+                <option value="content-creation" className="bg-primary text-white">Content Creation</option>
+                <option value="seo" className="bg-primary text-white">SEO Services</option>
+                <option value="social-media" className="bg-primary text-white">Social Media Management</option>
+                <option value="full-service" className="bg-primary text-white">Full Service Package</option>
             </select>
           </div>
 
@@ -244,11 +247,11 @@ export function ContactSection() {
               value={formData.budget}
               onChange={handleChange}
               className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all">
-              <option value="">Select budget range</option>
-              <option value="10k-25k">₹10,000 - ₹25,000</option>
-              <option value="25k-50k">₹25,000 - ₹50,000</option>
-              <option value="50k-100k">₹50,000 - ₹1,00,000</option>
-              <option value="100k+">₹1,00,000+</option>
+              <option value="" className="bg-primary text-white">Select budget range</option>
+              <option value="10k-25k" className="bg-primary text-white">₹10,000 - ₹25,000</option>
+              <option value="25k-50k" className="bg-primary text-white">₹25,000 - ₹50,000</option>
+              <option value="50k-100k" className="bg-primary text-white">₹50,000 - ₹1,00,000</option>
+              <option value="100k+" className="bg-primary text-white">₹1,00,000+</option>
             </select>
           </div>
         </div>
