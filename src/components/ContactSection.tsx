@@ -108,7 +108,7 @@ export function ContactSection() {
             </div>
             <div>
               <p className="text-sm text-text-muted">Location</p>
-              <p className="text-lg font-semibold">India</p>
+              <p className="text-lg font-semibold">Ahmedabad, Gujarat, India</p>
             </div>
           </motion.div>
         </div>
@@ -160,7 +160,7 @@ export function ContactSection() {
               value={formData.name}
               onChange={handleChange}
               className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
-              placeholder="John Doe"
+              placeholder="Enter your full name"
             />
           </div>
 
@@ -176,7 +176,7 @@ export function ContactSection() {
               value={formData.email}
               onChange={handleChange}
               className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
-              placeholder="john@example.com"
+              placeholder="Enter your email"
             />
           </div>
         </div>
@@ -193,7 +193,7 @@ export function ContactSection() {
               value={formData.phone}
               onChange={handleChange}
               className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
-              placeholder="+91 98765 43210"
+              placeholder="Enter your phone number"
             />
           </div>
 
@@ -208,7 +208,7 @@ export function ContactSection() {
               value={formData.company}
               onChange={handleChange}
               className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
-              placeholder="Your Company"
+              placeholder="Enter Your Company"
             />
           </div>
         </div>

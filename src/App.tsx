@@ -4,6 +4,7 @@ import { ServiceCard } from "./components/ServiceCard";
 import { ProcessStep } from "./components/ProcessStep";
 import { ResultsMetric } from "./components/ResultsMetric";
 import { ContactSection } from "./components/ContactSection";
+import { PricingSection } from "./components/PricingSection";
 import {
   Building2,
   Megaphone,
@@ -89,6 +90,17 @@ export function App() {
     "Strong Creative & Content Team",
     "Transparent Reporting",
     "Performance-Driven Strategy",
+  ];
+
+  const results = [
+    { src: "/r1.jpeg", alt: "Campaign Results" },
+    { src: "/r2.jpeg", alt: "Ad Manager Dashboard" },
+    { src: "/r3.jpeg", alt: "Ad Manager Dashboard" },
+    { src: "/r4.jpeg", alt: "Ad Manager Dashboard" },
+    { src: "/r5.jpeg", alt: "Ad Manager Dashboard" },
+    { src: "/r6.jpeg", alt: "Ad Manager Dashboard" },
+    { src: "/r8.jpg", alt: "Ad Manager Dashboard" },
+    { src: "/r9.jpg", alt: "Ad Manager Dashboard" },
   ];
   const industries = [
     "Real Estate Developers & Brokers 🏢",
@@ -274,17 +286,19 @@ export function App() {
                     "Our approach blends strategy, creativity, and data to
                     deliver consistent and scalable results."
                   </p>
-                  <div className="mt-4 flex items-center space-x-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center font-bold text-white">
-                      SP
-                    </div>
-                    <div>
-                      <p className="font-bold text-white">Shivam Patel</p>
-                      <p className="text-xs text-text-muted">
-                        Founder, Adspark
+                    <div className="mt-8 flex flex-col items-center space-y-4">
+                    <img
+                      src="/profile.jpeg"
+                      alt="Shivam Patel"
+                      className="w-1/2 h-full rounded-2xl object-cover border-2 border-primary/30"
+                    />
+                    <div className="text-center">
+                      <p className="font-bold text-white text-lg">Shivam Patel</p>
+                      <p className="text-sm text-text-muted">
+                      Founder, Adspark
                       </p>
                     </div>
-                  </div>
+                    </div>
                 </div>
               </motion.div>
             </div>
@@ -329,51 +343,36 @@ export function App() {
             <ResultsMetric value={100} suffix="%" label="Client Satisfaction" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-            <motion.div
-              initial={{
-                opacity: 0,
-                scale: 0.9,
-              }}
-              whileInView={{
-                opacity: 1,
-                scale: 1,
-              }}
-              viewport={{
-                once: true,
-              }}
-              className="rounded-2xl overflow-hidden border border-white/10 group">
-              <img
-                src="/WhatsApp_Image_2025-12-13_at_6.25.36_PM_(1).jpg"
-                alt="Campaign Results"
-                className="w-full h-auto hover:scale-105 transition-transform duration-500"
-              />
-            </motion.div>
-            <motion.div
-              initial={{
-                opacity: 0,
-                scale: 0.9,
-              }}
-              whileInView={{
-                opacity: 1,
-                scale: 1,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                delay: 0.2,
-              }}
-              className="rounded-2xl overflow-hidden border border-white/10 group">
-              <img
-                src="/WhatsApp_Image_2025-12-13_at_6.25.36_PM.jpg"
-                alt="Ad Manager Dashboard"
-                className="w-full h-auto hover:scale-105 transition-transform duration-500"
-              />
-            </motion.div>
-          </div>
+            <div className="mb-20 w-full overflow-hidden">
+              <motion.div
+                className="flex gap-8 w-full"
+                animate={{
+                  x: [-100, -2400],
+                }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}>
+                {[...results, ...results].map((result, index) => (
+                  <motion.div
+                    key={index}
+                    className="rounded-2xl overflow-hidden border border-white/10 flex-shrink-0"
+                    style={{
+                      width: "50%",
+                      height: "100%",
+                    }}>
+                    <img
+                      src={result.src}
+                      alt={result.alt}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
 
-          <div className="mb-20">
+          <div>
             <h3 className="text-2xl font-bold font-display text-center mb-8">
               Industries We Serve
             </h3>
@@ -403,6 +402,9 @@ export function App() {
           </div>
         </div>
       </section>
+
+      {/* Pricing Section */}
+      <PricingSection />
 
       {/* Contact Section */}
       <section id="contact" className="py-20 md:py-32 bg-surface/30">

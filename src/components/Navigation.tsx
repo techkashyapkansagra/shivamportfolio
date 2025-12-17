@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -9,7 +9,7 @@ export function Navigation() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
       // Update active section based on scroll position
-      const sections = ["home", "whatwedo", "howwework", "results"];
+      const sections = ["home", "whatwedo", "howwework", "results", "pricing"];
       const current = sections.find((section) => {
         const element = document.getElementById(section);
         if (element) {
@@ -55,6 +55,10 @@ export function Navigation() {
     {
       name: "Results",
       id: "results",
+    },
+    {
+      name: "Pricing",
+      id: "pricing",
     },
   ];
   return (
