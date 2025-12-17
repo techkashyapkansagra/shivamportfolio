@@ -347,10 +347,10 @@ export function App() {
               <motion.div
                 className="flex gap-8 w-full"
                 animate={{
-                  x: [-100, -2400],
+                  x: [0, -10000],
                 }}
                 transition={{
-                  duration: 20,
+                  duration: 60,
                   repeat: Infinity,
                   ease: "linear",
                 }}>
