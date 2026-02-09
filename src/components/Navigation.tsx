@@ -9,7 +9,7 @@ export function Navigation() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
       // Update active section based on scroll position
-      const sections = ["home", "whatwedo", "howwework", "results", "pricing"];
+      const sections = ["home", "whatwedo", "howwework", "results", "clients", "dashboard", "graphics", "portfolio", "pricing"];
       const current = sections.find((section) => {
         const element = document.getElementById(section);
         if (element) {
@@ -55,6 +55,18 @@ export function Navigation() {
     {
       name: "Results",
       id: "results",
+    },
+    {
+      name: "Clients",
+      id: "clients",
+    },
+    {
+      name: "Graphics",
+      id: "graphics",
+    },
+    {
+      name: "Portfolio",
+      id: "portfolio",
     },
     {
       name: "Pricing",

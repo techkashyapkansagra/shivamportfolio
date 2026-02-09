@@ -3,6 +3,11 @@ import { Hero } from "./components/Hero";
 import { ServiceCard } from "./components/ServiceCard";
 import { ProcessStep } from "./components/ProcessStep";
 import { ResultsMetric } from "./components/ResultsMetric";
+import { ResultsStats } from "./components/ResultsStats";
+import { ClientsSection } from "./components/ClientsSection";
+import { DashboardSection } from "./components/DashboardSection";
+import { GraphicsSection } from "./components/GraphicsSection";
+import { PortfolioGallery } from "./components/PortfolioGallery";
 import { ContactSection } from "./components/ContactSection";
 import { PricingSection } from "./components/PricingSection";
 import {
@@ -120,7 +125,7 @@ export function App() {
 
       {/* About & Services Section */}
       <section id="whatwedo" className="py-20 md:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="mb-20 text-center">
             <motion.h2
               initial={{
@@ -134,7 +139,7 @@ export function App() {
               viewport={{
                 once: true,
               }}
-              className="text-4xl md:text-5xl font-bold font-display mb-6">
+              className="mb-6 text-4xl font-bold md:text-5xl font-display">
               About <span className="text-primary">Adspark</span>
             </motion.h2>
             <motion.p
@@ -152,7 +157,7 @@ export function App() {
               transition={{
                 delay: 0.1,
               }}
-              className="max-w-3xl mx-auto text-lg text-text-muted leading-relaxed">
+              className="max-w-3xl mx-auto text-lg leading-relaxed text-text-muted">
               Adspark Digital Marketing Agency is a growth-focused agency
               specializing in Real Estate Marketing, Performance Ads, and
               Content Creation. We help brands attract the right audience,
@@ -172,12 +177,12 @@ export function App() {
                 once: true,
               }}
               className="flex items-center justify-center mb-12">
-              <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-secondary">
+              <span className="px-4 py-2 text-sm font-medium border rounded-full bg-white/5 border-white/10 text-secondary">
                 Our Core Services
               </span>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
               {services.map((service, index) => (
                 <ServiceCard
                   key={service.title}
@@ -188,11 +193,11 @@ export function App() {
             </div>
           </div>
 
-          <div className="w-full h-64 md:h-96 rounded-3xl overflow-hidden relative mt-20">
+          <div className="relative w-full h-64 mt-20 overflow-hidden md:h-96 rounded-3xl">
             <img
               src="/Screenshot_2025-12-14_162521.png"
               alt="Adspark Services Showcase"
-              className="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity duration-500"
+              className="object-cover w-full h-full transition-opacity duration-500 opacity-60 hover:opacity-80"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
           </div>
@@ -201,8 +206,8 @@ export function App() {
 
       {/* Process Section */}
       <section id="howwework" className="py-20 md:py-32 bg-surface/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="grid items-start grid-cols-1 gap-16 lg:grid-cols-2">
             <div>
               <motion.h2
                 initial={{
@@ -216,7 +221,7 @@ export function App() {
                 viewport={{
                   once: true,
                 }}
-                className="text-4xl font-bold font-display mb-12">
+                className="mb-12 text-4xl font-bold font-display">
                 How We <span className="text-secondary">Work</span>
               </motion.h2>
 
@@ -249,14 +254,14 @@ export function App() {
                 transition={{
                   delay: 0.3,
                 }}
-                className="p-8 rounded-3xl bg-gradient-to-br from-surface to-background border border-white/10 relative overflow-hidden">
+                className="relative p-8 overflow-hidden border rounded-3xl bg-gradient-to-br from-surface to-background border-white/10">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px]" />
 
-                <h3 className="text-3xl font-bold font-display mb-8 relative z-10">
+                <h3 className="relative z-10 mb-8 text-3xl font-bold font-display">
                   Why Choose <span className="text-primary">Adspark?</span>
                 </h3>
 
-                <div className="space-y-6 relative z-10">
+                <div className="relative z-10 space-y-6">
                   {benefits.map((benefit, index) => (
                     <motion.div
                       key={index}
@@ -275,30 +280,30 @@ export function App() {
                         delay: 0.4 + index * 0.1,
                       }}
                       className="flex items-center space-x-4">
-                      <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0" />
+                      <CheckCircle2 className="flex-shrink-0 w-6 h-6 text-green-500" />
                       <span className="text-lg font-medium">{benefit}</span>
                     </motion.div>
                   ))}
                 </div>
 
-                <div className="mt-10 pt-8 border-t border-white/10">
-                  <p className="text-text-muted text-sm italic">
+                <div className="pt-8 mt-10 border-t border-white/10">
+                  <p className="text-sm italic text-text-muted">
                     "Our approach blends strategy, creativity, and data to
                     deliver consistent and scalable results."
                   </p>
-                    <div className="mt-8 flex flex-col items-center space-y-4">
+                  <div className="flex flex-col items-center mt-8 space-y-4">
                     <img
                       src="/profile.jpeg"
                       alt="Shivam Patel"
-                      className="w-1/2 h-full rounded-2xl object-cover border-2 border-primary/30"
+                      className="object-cover w-1/2 h-full border-2 rounded-2xl border-primary/30"
                     />
                     <div className="text-center">
-                      <p className="font-bold text-white text-lg">Shivam Patel</p>
+                      <p className="text-lg font-bold text-white">Shivam Patel</p>
                       <p className="text-sm text-text-muted">
-                      Founder, Adspark
+                        Founder, Adspark
                       </p>
                     </div>
-                    </div>
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -308,8 +313,8 @@ export function App() {
 
       {/* Results Section */}
       <section id="results" className="py-20 md:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="mb-16 text-center">
             <motion.h2
               initial={{
                 opacity: 0,
@@ -322,58 +327,19 @@ export function App() {
               viewport={{
                 once: true,
               }}
-              className="text-4xl md:text-5xl font-bold font-display mb-4">
+              className="mb-4 text-4xl font-bold md:text-5xl font-display">
               Results That <span className="text-accent">Matter</span>
             </motion.h2>
-            <p className="text-text-muted max-w-2xl mx-auto">
+            <p className="max-w-2xl mx-auto text-text-muted">
               We don't just promise growth; we deliver measurable impact through
               data-backed strategies.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-20">
-            <ResultsMetric value={500} suffix="+" label="Leads Generated" />
-            <ResultsMetric
-              value={40}
-              prefix="-"
-              suffix="%"
-              label="Cost Per Lead"
-            />
-            <ResultsMetric value={3} suffix="x" label="Inquiry to Visit" />
-            <ResultsMetric value={100} suffix="%" label="Client Satisfaction" />
-          </div>
+          <ResultsStats />
 
-            <div className="mb-20 w-full overflow-hidden">
-              <motion.div
-                className="flex gap-8 w-full"
-                animate={{
-                  x: [0, -10000],
-                }}
-                transition={{
-                  duration: 60,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}>
-                {[...results, ...results].map((result, index) => (
-                  <motion.div
-                    key={index}
-                    className="rounded-2xl overflow-hidden border border-white/10 flex-shrink-0"
-                    style={{
-                      width: "50%",
-                      height: "100%",
-                    }}>
-                    <img
-                      src={result.src}
-                      alt={result.alt}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                    />
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-
-          <div>
-            <h3 className="text-2xl font-bold font-display text-center mb-8">
+          <div className="mt-20">
+            <h3 className="mb-8 text-2xl font-bold text-center font-display">
               Industries We Serve
             </h3>
             <div className="flex flex-wrap justify-center gap-4">
@@ -394,7 +360,7 @@ export function App() {
                   transition={{
                     delay: index * 0.1,
                   }}
-                  className="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-sm md:text-base hover:bg-white/10 hover:border-primary/30 transition-all duration-300 cursor-default">
+                  className="px-6 py-3 text-sm transition-all duration-300 border rounded-full cursor-default bg-white/5 border-white/10 md:text-base hover:bg-white/10 hover:border-primary/30">
                   {industry}
                 </motion.span>
               ))}
@@ -403,13 +369,25 @@ export function App() {
         </div>
       </section>
 
+      {/* Clients Section */}
+      <ClientsSection />
+
+      {/* Dashboard Section */}
+      <DashboardSection />
+
+      {/* Graphics Section */}
+      <GraphicsSection />
+
+      {/* Portfolio Gallery Section */}
+      {/* <PortfolioGallery /> */}
+
       {/* Pricing Section */}
       <PricingSection />
 
       {/* Contact Section */}
       <section id="contact" className="py-20 md:py-32 bg-surface/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="mb-16 text-center">
             <motion.h2
               initial={{
                 opacity: 0,
@@ -422,14 +400,14 @@ export function App() {
               viewport={{
                 once: true,
               }}
-              className="text-4xl md:text-5xl font-bold font-display mb-4">
+              className="mb-4 text-4xl font-bold md:text-5xl font-display">
               Ready to{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                 Ignite
               </span>{" "}
               Your Growth?
             </motion.h2>
-            <p className="text-text-muted max-w-2xl mx-auto text-lg">
+            <p className="max-w-2xl mx-auto text-lg text-text-muted">
               Get in touch with us today for a free consultation and let's
               discuss how we can help your business thrive.
             </p>
@@ -440,7 +418,7 @@ export function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 text-center text-text-muted text-sm border-t border-white/5">
+      <footer className="py-8 text-sm text-center border-t text-text-muted border-white/5">
         <p>
           © {new Date().getFullYear()} Adspark Digital Marketing Agency. All
           rights reserved.
