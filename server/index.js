@@ -11,30 +11,60 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
-app.use(cors());
+
+// CORS configuration - allow all origins in production (same domain) or specific origins
+const corsOptions = {
+  origin: process.env.CORS_ORIGIN || true, // Allow all origins (same domain in Vercel)
+  credentials: true,
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // API route handler
 const handleSendEmail = async (req, res) => {
+  console.log("Received email request:", { 
+    name: req.body?.name, 
+    email: req.body?.email,
+    hasMessage: !!req.body?.message 
+  });
+  
   const { name, email, phone, company, service, budget, message } = req.body;
   if (!name || !email || !message) {
+    console.error("Missing required fields:", { name: !!name, email: !!email, message: !!message });
     return res.status(400).json({ error: "Missing required fields" });
   }
   try {
+    console.log("Attempting to send email...");
     await sendEmail({ name, email, phone, company, service, budget, message });
+    console.log("Email sent successfully");
     res.json({ ok: true });
   } catch (err) {
     console.error("Error sending email:", err);
-    res.status(500).json({ error: "Failed to send email" });
+    console.error("Error details:", {
+      message: err?.message,
+      stack: err?.stack,
+      smtpConfigured: !!(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS)
+    });
+    res.status(500).json({ 
+      error: "Failed to send email",
+      details: process.env.NODE_ENV === "development" ? err?.message : undefined
+    });
   }
 };
 
-// API routes - support both /api/send-email and /send-email (for Vercel)
+// API routes - Vercel routes /api/* to api/index.js, so we need full paths
 app.post("/api/send-email", handleSendEmail);
 app.post("/send-email", handleSendEmail);
 
 // Health check routes
-const handleHealth = (req, res) => res.json({ ok: true, uptime: process.uptime() });
+const handleHealth = (req, res) => {
+  res.json({ 
+    ok: true, 
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString(),
+    environment: process.env.VERCEL ? "vercel" : "local"
+  });
+};
 app.get("/api/health", handleHealth);
 app.get("/health", handleHealth);
 

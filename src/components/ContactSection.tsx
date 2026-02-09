@@ -16,8 +16,17 @@ export function ContactSection() {
     e.preventDefault();
     setLoading(true);
     try {
-      const apiBase = import.meta.env.VITE_API_URL || "http://localhost:4000";
-      const res = await fetch(`${apiBase}/api/send-email`, {
+      // Use relative URL in production (same domain), or VITE_API_URL if set, or localhost for dev
+      const isProd = import.meta.env.PROD;
+      const apiBase = import.meta.env.VITE_API_URL || (isProd ? "" : "http://localhost:4000");
+      const apiUrl = `${apiBase}/api/send-email`;
+
+      // Debug logging (remove in production if needed)
+      if (!isProd) {
+        console.log("API URL:", apiUrl);
+      }
+
+      const res = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -25,20 +34,23 @@ export function ContactSection() {
 
       if (!res.ok) {
         // try to parse error body safely
-        let errBody: any = {};
+        let errBody: { error?: string } = {};
         try {
           errBody = await res.json();
         } catch (_) {
           // ignore parse errors
         }
-        throw new Error(errBody?.error || `Request failed with status ${res.status}`);
+        const errorMsg = errBody?.error || `Request failed with status ${res.status}`;
+        console.error("API Error:", errorMsg, "Status:", res.status);
+        throw new Error(errorMsg);
       }
 
       alert("Thank you — your message was sent successfully.");
       setFormData({ name: "", email: "", phone: "", company: "", service: "", budget: "", message: "" });
-    } catch (err: any) {
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : "Unknown error";
       console.error("Contact form submit error:", err);
-      alert("Could not send message: " + (err?.message || "Unknown error"));
+      alert("Could not send message: " + errorMessage);
     } finally {
       setLoading(false);
     }
@@ -224,16 +236,16 @@ export function ContactSection() {
               value={formData.service}
               onChange={handleChange}
               className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all">
-                <option value="" className="bg-primary text-white">Select a service</option>
-                <option value="real-estate" className="bg-primary text-white">Real Estate Marketing</option>
-                <option value="branding" className="bg-primary text-white">Branding Services</option>
-                <option value="digital-marketing" className="bg-primary text-white">Digital Marketing</option>
-                <option value="web-development" className="bg-primary text-white">Web Development</option>
-                <option value="performance-ads" className="bg-primary text-white">Performance Advertising</option>
-                <option value="content-creation" className="bg-primary text-white">Content Creation</option>
-                <option value="seo" className="bg-primary text-white">SEO Services</option>
-                <option value="social-media" className="bg-primary text-white">Social Media Management</option>
-                <option value="full-service" className="bg-primary text-white">Full Service Package</option>
+              <option value="" className="bg-primary text-white">Select a service</option>
+              <option value="real-estate" className="bg-primary text-white">Real Estate Marketing</option>
+              <option value="branding" className="bg-primary text-white">Branding Services</option>
+              <option value="digital-marketing" className="bg-primary text-white">Digital Marketing</option>
+              <option value="web-development" className="bg-primary text-white">Web Development</option>
+              <option value="performance-ads" className="bg-primary text-white">Performance Advertising</option>
+              <option value="content-creation" className="bg-primary text-white">Content Creation</option>
+              <option value="seo" className="bg-primary text-white">SEO Services</option>
+              <option value="social-media" className="bg-primary text-white">Social Media Management</option>
+              <option value="full-service" className="bg-primary text-white">Full Service Package</option>
             </select>
           </div>
 

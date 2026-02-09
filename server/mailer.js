@@ -52,4 +52,5 @@ export async function sendEmail({ name, email, phone, company, service, budget, 
     console.log("Preview URL:", nodemailer.getTestMessageUrl(info));
   }
   return info;
- }
+}
+
