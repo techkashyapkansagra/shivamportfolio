@@ -27,6 +27,16 @@ const graphicsImages = [
     { src: "/WhatsApp Image 2026-02-05 at 7.04.44 PM.jpeg", alt: "Property Advertisement", category: "ads" },
     { src: "/WhatsApp Image 2026-02-05 at 7.04.45 PM (1).jpeg", alt: "Marketing Material", category: "ads" },
     { src: "/WhatsApp Image 2026-02-05 at 7.04.45 PM.jpeg", alt: "Campaign Visual", category: "ads" },
+    { src: "/15.png", alt: "Campaign Visual", category: "ads" },
+    { src: "/16.png", alt: "Campaign Visual", category: "ads" },
+    { src: "/17.png", alt: "Campaign Visual", category: "ads" },
+    { src: "/18.png", alt: "Campaign Visual", category: "ads" },
+    { src: "/19.png", alt: "Campaign Visual", category: "ads" },
+    { src: "/22.png", alt: "Campaign Visual", category: "ads" },
+    { src: "/55.png", alt: "Campaign Visual", category: "ads" },
+    { src: "/66.png", alt: "Campaign Visual", category: "ads" },
+    { src: "/144.png", alt: "Campaign Visual", category: "ads" },
+
 ];
 
 export function GraphicsSection() {

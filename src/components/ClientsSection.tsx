@@ -18,6 +18,15 @@ const dashboardImages = [
     { src: "/7.png", alt: "Campaign Dashboard" },
     { src: "/8.png", alt: "Marketing Performance" },
     { src: "/9.png", alt: "Analytics Report" },
+    { src: "public/1 (2).png", alt: "Analytics Report" },
+    { src: "public/2 (2).png", alt: "Analytics Report" },
+    { src: "public/3 (2).png", alt: "Analytics Report" },
+    { src: "public/4 (2).png", alt: "Analytics Report" },
+    { src: "public/5 (2).png", alt: "Analytics Report" },
+    { src: "public/6 (2).png", alt: "Analytics Report" },
+    { src: "public/7 (2).png", alt: "Analytics Report" },
+    { src: "public/8 (2).png", alt: "Analytics Report" },
+
 ];
 
 const clients: Client[] = [
