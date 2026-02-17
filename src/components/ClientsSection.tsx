@@ -9,23 +9,23 @@ interface Client {
 }
 
 const dashboardImages = [
-    { src: "/1(2).png", alt: "Analytics Report" },
-    { src: "/2(2).png", alt: "Analytics Report" },
-    { src: "/3(2).png", alt: "Analytics Report" },
-    { src: "/4(2).png", alt: "Analytics Report" },
-    { src: "/5(2).png", alt: "Analytics Report" },
-    { src: "/6(2).png", alt: "Analytics Report" },
+    { src: "/3.png", alt: "Marketing Metrics" },
+    { src: "/6.png", alt: "Ad Results" },
     { src: "/7(2).png", alt: "Analytics Report" },
-    { src: "/8(2).png", alt: "Analytics Report" },
+    { src: "/2(2).jpeg", alt: "Analytics Report" },
+    { src: "/1(2).jpeg", alt: "Analytics Report" },
+    { src: "/5(2).png", alt: "Analytics Report" },
+    { src: "/7.png", alt: "Campaign Dashboard" },
+    { src: "/9.png", alt: "Analytics Report" },
     { src: "/1.png", alt: "Campaign Performance Dashboard" },
     { src: "/2.png", alt: "Ad Campaign Results" },
-    { src: "/3.png", alt: "Marketing Metrics" },
     { src: "/4.png", alt: "Campaign Analytics" },
     { src: "/5.png", alt: "Performance Data" },
-    { src: "/6.png", alt: "Ad Results" },
-    { src: "/7.png", alt: "Campaign Dashboard" },
     { src: "/8.png", alt: "Marketing Performance" },
-    { src: "/9.png", alt: "Analytics Report" },
+    { src: "/3(2).png", alt: "Analytics Report" },
+    { src: "/4(2).png", alt: "Analytics Report" },
+    { src: "/6(2).png", alt: "Analytics Report" },
+    { src: "/8(2).png", alt: "Analytics Report" },
 
 ];
 
