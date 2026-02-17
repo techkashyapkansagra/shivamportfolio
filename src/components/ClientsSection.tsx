@@ -9,14 +9,14 @@ interface Client {
 }
 
 const dashboardImages = [
-    { src: "public/1(2).png", alt: "Analytics Report" },
-    { src: "public/2(2).png", alt: "Analytics Report" },
-    { src: "public/3(2).png", alt: "Analytics Report" },
-    { src: "public/4(2).png", alt: "Analytics Report" },
-    { src: "public/5(2).png", alt: "Analytics Report" },
-    { src: "public/6(2).png", alt: "Analytics Report" },
-    { src: "public/7(2).png", alt: "Analytics Report" },
-    { src: "public/8(2).png", alt: "Analytics Report" },
+    { src: "/1(2).png", alt: "Analytics Report" },
+    { src: "/2(2).png", alt: "Analytics Report" },
+    { src: "/3(2).png", alt: "Analytics Report" },
+    { src: "/4(2).png", alt: "Analytics Report" },
+    { src: "/5(2).png", alt: "Analytics Report" },
+    { src: "/6(2).png", alt: "Analytics Report" },
+    { src: "/7(2).png", alt: "Analytics Report" },
+    { src: "/8(2).png", alt: "Analytics Report" },
     { src: "/1.png", alt: "Campaign Performance Dashboard" },
     { src: "/2.png", alt: "Ad Campaign Results" },
     { src: "/3.png", alt: "Marketing Metrics" },
